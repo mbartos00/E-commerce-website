@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   body{
     min-width:100vh;
     font-family: 'Roboto', sans-serif;
+    font-size:1rem;
   }
   h1,h2,h3{
     font-weight:bold;
