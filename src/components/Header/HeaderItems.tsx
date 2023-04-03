@@ -1,6 +1,7 @@
 import type { Dispatch, SetStateAction } from 'react';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import BurgerMenu from './UI/BurgerMenu';
+import BurgerMenu from '../UI/BurgerMenu';
 
 const CtaWrapper = styled.div`
   display: flex;
@@ -45,30 +46,30 @@ const HeaderItems = ({ isMobile, isMenuOpen, setIsMenuOpen }: Props) => {
             />
           </button>
         )}
-        <a href={'#'}>
+        <NavLink to={'/profile'}>
           <img
             src='./src/assets/userIco.svg'
             alt='profile button'
           />
-        </a>
-        <a href={'#'}>
+        </NavLink>
+        <NavLink to={'/cart'}>
           <img
             src='./src/assets/cartIco.svg'
             alt='cart button'
           />
-        </a>
+        </NavLink>
         {isMobile ? (
           <BurgerMenu
             isMenuOpen={isMenuOpen}
             setIsMenuOpen={setIsMenuOpen}
           />
         ) : (
-          <a href={'#'}>
+          <NavLink to={'/favourites'}>
             <img
               src='./src/assets/heartIco.svg'
               alt='favourites button'
             />
-          </a>
+          </NavLink>
         )}
       </CtaWrapper>
     </>

@@ -1,5 +1,4 @@
 import Home from './Pages/Home';
-import GlobalStyle from './globalStyles';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Root from './Pages/Root';
 

@@ -1,4 +1,8 @@
+import { NavLink } from 'react-router-dom';
+
 import styled from 'styled-components';
+import MainNavigation from './MainNavigation';
+
 const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
   background-color: #ffffff7d;
   display: flex;
@@ -12,7 +16,8 @@ const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
   transform: translateY(${({ isOpen }) => (isOpen ? '65%' : '-200%')});
 `;
 
-export const StyledLink = styled.a`
+export const StyledLink = styled(NavLink)`
+  display: block;
   text-decoration: none;
   color: #323334;
   font-size: 1rem;
@@ -37,26 +42,15 @@ const NavMobile = ({ isOpen }: { isOpen: boolean }) => {
   return (
     <StyledMobileNav isOpen={isOpen}>
       <StyledMenu>
+        <MainNavigation />
         <li>
-          <StyledLink href=''>HOME</StyledLink>
-        </li>
-        <li>
-          <StyledLink href=''>STORE</StyledLink>
-        </li>
-        <li>
-          <StyledLink href=''>ABOUT US</StyledLink>
-        </li>
-        <li>
-          <StyledLink href=''>CONTACT US</StyledLink>
-        </li>
-        <li>
-          <StyledLink href=''>
+          <StyledLink to=''>
             <img
               src='./src/assets/searchIco.svg'
               alt='search button'
             />
           </StyledLink>
-          <StyledLink href=''>
+          <StyledLink to=''>
             <img
               src='./src/assets/heartIco.svg'
               alt='favourites button'
