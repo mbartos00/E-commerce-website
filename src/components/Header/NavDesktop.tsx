@@ -31,7 +31,7 @@ const StyledMenu = styled.ul`
   justify-content: center;
   align-items: center;
   list-style: none;
-  gap: 4rem;
+  gap: clamp(4rem, 8vw, 10rem);
   li {
     transition: all ease-in 0.2s;
     &:hover {

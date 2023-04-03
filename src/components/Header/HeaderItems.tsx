@@ -3,11 +3,14 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import BurgerMenu from '../UI/BurgerMenu';
 
-const CtaWrapper = styled.div`
+const ButtonsWrapper = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
   gap: 3rem;
+  @media screen and (min-width: 600px) {
+    gap: clamp(2rem, 4vw, 5rem);
+  }
   a,
   button {
     width: clamp(0.8rem, 3vw, 1.6rem);
@@ -25,6 +28,13 @@ const CtaWrapper = styled.div`
   }
 `;
 
+const StyledTitleContainer = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+`;
+
 type Props = {
   isMobile: boolean;
   isMenuOpen: boolean;
@@ -34,10 +44,10 @@ type Props = {
 const HeaderItems = ({ isMobile, isMenuOpen, setIsMenuOpen }: Props) => {
   return (
     <>
-      <div>
+      <StyledTitleContainer>
         <h3>Shop</h3>
-      </div>
-      <CtaWrapper>
+      </StyledTitleContainer>
+      <ButtonsWrapper>
         {!isMobile && (
           <button>
             <img
@@ -71,7 +81,7 @@ const HeaderItems = ({ isMobile, isMenuOpen, setIsMenuOpen }: Props) => {
             />
           </NavLink>
         )}
-      </CtaWrapper>
+      </ButtonsWrapper>
     </>
   );
 };
