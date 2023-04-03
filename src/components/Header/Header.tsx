@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useMatch } from 'react-router-dom';
 import styled from 'styled-components';
+import HeaderIcons from './HeaderIcons';
 import HeaderItems from './HeaderItems';
 import Nav from './Nav';
 
@@ -16,7 +16,6 @@ const StyledHeader = styled.header`
     flex-direction: column;
     div {
       display: inherit;
-      justify-content: space-between;
       width: 100%;
       align-items: center;
     }
@@ -27,8 +26,6 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [isMobile, setIsMobile] = useState(false);
-
-  const isHomePage = Boolean(useMatch('/'));
 
   const handleResize = () => {
     const width = window.innerWidth;
@@ -70,6 +67,7 @@ const Header = () => {
         isMobile={isMobile}
         isOpen={isMenuOpen}
       />
+      {!isMobile && <HeaderIcons />}
     </StyledHeader>
   );
 };
