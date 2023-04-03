@@ -21,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.75rem;
   }
   h3{
-    font-size: 1.125rem;
+    font-size: clamp(1.125rem, 3vw,1.75rem);
 
   }
 `;
