@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import { Dispatch, SetStateAction } from 'react';
 
-const StyledBurgerMenu = styled(motion.div)<{ isOpen: boolean }>`
+const StyledBurgerMenu = styled.div<{ isOpen: boolean }>`
   cursor: pointer;
   width: 1.6rem;
   z-index: 10;
