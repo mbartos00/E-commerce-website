@@ -3,7 +3,7 @@ import GlobalStyle from '#/globalStyles';
 
 import { Outlet } from 'react-router-dom';
 
-const Root = () => {
+const Layout = () => {
   return (
     <>
       <GlobalStyle />
@@ -15,4 +15,4 @@ const Root = () => {
   );
 };
 
-export default Root;
+export default Layout;

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import HeaderIcons from './HeaderIcons';
 import HeaderItems from './HeaderItems';
-import Nav from './Nav';
+import Nav from '../Nav/Nav';
+import useWindowWidth from '../hooks/useWindowWidth';
+import isMobileWidth from '../utils/isMobileWidth';
 
 const StyledHeader = styled.header`
   position: fixed;
@@ -23,50 +24,20 @@ const StyledHeader = styled.header`
 `;
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [isMobile, setIsMobile] = useState(false);
-
-  const handleResize = () => {
-    const width = window.innerWidth;
-    if (width >= 600) {
-      setIsMobile(false);
-    } else {
-      setIsMobile(true);
-    }
-  };
-
-  useEffect(() => {
-    if (windowWidth > 600) setIsMobile(false);
-    else setIsMobile(true);
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
+  const windowWidth = useWindowWidth();
+  const isMobile = isMobileWidth(windowWidth);
   return (
     <StyledHeader>
       {!isMobile ? (
         <div>
-          <HeaderItems
-            isMobile={isMobile}
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-          />
+          <HeaderItems />
         </div>
       ) : (
         <>
-          <HeaderItems
-            isMobile={isMobile}
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-          />
+          <HeaderItems />
         </>
       )}
-      <Nav
-        isMobile={isMobile}
-        isOpen={isMenuOpen}
-      />
+      <Nav />
       {!isMobile && <HeaderIcons />}
     </StyledHeader>
   );

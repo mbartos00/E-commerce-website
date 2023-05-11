@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom';
-
+import useStore from '#/store/store';
 import styled from 'styled-components';
 import MainNavigation from './MainNavigation';
 
@@ -38,9 +38,11 @@ const StyledMenu = styled.ul`
     gap: 3rem;
   }
 `;
-const NavMobile = ({ isOpen }: { isOpen: boolean }) => {
+const NavMobile = () => {
+  const { isMenuOpen } = useStore();
+
   return (
-    <StyledMobileNav isOpen={isOpen}>
+    <StyledMobileNav isOpen={isMenuOpen}>
       <StyledMenu>
         <MainNavigation />
         <li>

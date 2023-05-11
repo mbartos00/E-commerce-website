@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Dispatch, SetStateAction } from 'react';
+import useStore from '#/store/store';
 
 const StyledBurgerMenu = styled.div<{ isOpen: boolean }>`
   cursor: pointer;
@@ -47,19 +48,12 @@ const StyledBurgerMenu = styled.div<{ isOpen: boolean }>`
   }
 `;
 
-type Props = {
-  isMenuOpen: boolean;
-  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
-};
-
-const BurgerMenu = ({ isMenuOpen, setIsMenuOpen }: Props) => {
-  const handleClick = () => {
-    setIsMenuOpen(prev => !prev);
-  };
+const BurgerMenu = () => {
+  const { isMenuOpen, toggleMenuOpen } = useStore();
   return (
     <StyledBurgerMenu
       isOpen={isMenuOpen}
-      onClick={handleClick}
+      onClick={toggleMenuOpen}
     >
       <span></span>
     </StyledBurgerMenu>

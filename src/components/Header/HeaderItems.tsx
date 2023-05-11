@@ -1,7 +1,8 @@
-import type { Dispatch, SetStateAction } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import BurgerMenu from '../UI/BurgerMenu';
+import useWindowWidth from '../hooks/useWindowWidth';
+import isMobileWidth from '../utils/isMobileWidth';
 
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -35,13 +36,9 @@ const StyledTitleContainer = styled.div`
   align-items: center;
 `;
 
-type Props = {
-  isMobile: boolean;
-  isMenuOpen: boolean;
-  setIsMenuOpen: Dispatch<SetStateAction<boolean>>;
-};
-
-const HeaderItems = ({ isMobile, isMenuOpen, setIsMenuOpen }: Props) => {
+const HeaderItems = () => {
+  const windowWidth = useWindowWidth();
+  const isMobile = isMobileWidth(windowWidth);
   return (
     <>
       <StyledTitleContainer>
@@ -69,10 +66,7 @@ const HeaderItems = ({ isMobile, isMenuOpen, setIsMenuOpen }: Props) => {
           />
         </NavLink>
         {isMobile ? (
-          <BurgerMenu
-            isMenuOpen={isMenuOpen}
-            setIsMenuOpen={setIsMenuOpen}
-          />
+          <BurgerMenu />
         ) : (
           <NavLink to={'/favourites'}>
             <img
