@@ -5,7 +5,7 @@ type Props = {
   primary: boolean | undefined;
 };
 
-const StyledButton = styled.button<Props>`
+export const StyledButton = styled.button<Props>`
   background-color: ${props => (!props.primary ? '#fff' : '#323334')};
   color: ${props => (!props.primary ? '#323334' : '#fff')};
   border: ${props => (!props.primary ? '1px solid #323334' : 'none')};
