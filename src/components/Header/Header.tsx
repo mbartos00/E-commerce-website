@@ -6,10 +6,11 @@ import useWindowWidth from '../hooks/useWindowWidth';
 import isMobileWidth from '../utils/isMobileWidth';
 
 const StyledHeader = styled.header`
-  position: fixed;
+  position: sticky;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
   width: 100%;
   padding: 1.2rem 1.2rem;
   @media screen and (min-width: 600px) {

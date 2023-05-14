@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import MainNavigation from './MainNavigation';
 
 const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
-  background-color: #ffffff7d;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -13,7 +13,7 @@ const StyledMobileNav = styled.nav<{ isOpen: boolean }>`
   padding-block: 2rem;
   box-shadow: 0px 10px 10px -10px #323334;
   transition: all ease-in-out 0.4s;
-  transform: translateY(${({ isOpen }) => (isOpen ? '65%' : '-200%')});
+  transform: translateY(${({ isOpen }) => (isOpen ? '60%' : '-200%')});
 `;
 
 export const StyledLink = styled(NavLink)`
